@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String[] location = {"CRC 101","CRC 101","Fine Arts Hut","Fine Arts Hut","KV Grounds","KV Grounds"};
         final Integer[] cordname = {R.string.c1,R.string.c2,R.string.c3,R.string.c4,R.string.c5,R.string.c6};
+        final Integer[] num={R.string.ph1,R.string.ph2,R.string.ph3,R.string.ph4,R.string.ph5,R.string.ph6};
 
 
         CustomListAdapter adapter = new CustomListAdapter(this,R.layout.mylist,events,category,description,schedule,
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 extras.putString("schedule",schedule[position]);
                 extras.putString("location",location[position]);
                 extras.putString("contact",getString(cordname[position]));
-
+                extras.putString("phone",getString(num[position]));
                 i.putExtras(extras);
                 startActivity(i);
 
