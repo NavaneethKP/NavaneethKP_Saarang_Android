@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -22,12 +23,25 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
     private final Context context;
     private final String[] events;
+    private final String[] category;
+    private final Integer[] description;
+    private final String[] schedule;
+    private final String[] location;
+    private final Integer[] cordname;
+    private final Integer[] imgid;
 
 
-    public CustomListAdapter(Context context, @LayoutRes int resource, String[] events) {
+    public CustomListAdapter(Context context, @LayoutRes int resource, String[] events,String[] category,
+                                Integer[] description,String[] schedule,String[] location,Integer[] cordname,Integer[] imgid) {
         super(context, resource, events);
         this.events = events;
         this.context=context;
+        this.category=category;
+        this.description=description;
+        this.schedule=schedule;
+        this.location=location;
+        this.cordname=cordname;
+        this.imgid=imgid;
     }
 
     @NonNull
@@ -38,9 +52,17 @@ public class CustomListAdapter extends ArrayAdapter<String> {
         View rowview = inflater.inflate(R.layout.mylist,parent,false);
         TextView text =(TextView) rowview.findViewById(R.id.text);
         text.setText(events[position]);
+        ImageView image = (ImageView) rowview.findViewById(R.id.image);
+        image.setImageResource(imgid[position]);
         return rowview;
 
+
     }
+
+
+
+
+
 }
 
 
